@@ -16,10 +16,10 @@
   "description": "small typescript library",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/C5m7b4/c5-tiny-package"
   },
-  "bugs": "",
-  "homepage": "",
+  "bugs": "https://github.com/C5m7b4/c5-tiny-package",
+  "homepage": "https://github.com/C5m7b4/c5-tiny-package",
   "devDependencies": {
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
