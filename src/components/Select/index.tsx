@@ -8,7 +8,7 @@ export interface SelectProps<T> {
   displayKey: keyof T;
   label: string;
   // eslint-disable-next-line no-unused-vars
-  onSelect?: (e: T) => void;
+  onSelect: (e: T) => void;
   labelPosition?: labelPosition;
 }
 
@@ -27,12 +27,14 @@ const Select = <T,>({
   const listRef = useRef<HTMLDivElement>(null);
 
   const handleMouseDown = (e: MouseEvent) => {
-    if (!triggerRef.current) return;
-    if (!listRef.current) return;
+    const triggerRef = document.querySelector('[query-id="trigger-ref"]');
+    if (!triggerRef) return;
+    const listRef = document.querySelector('[query-id="list"]');
+    if (!listRef) return;
 
-    if (!triggerRef.current.contains(e.target as Node)) {
-      if (!listRef.current.contains(e.target as Node)) {
-        listRef.current.setAttribute('data-display', 'closed');
+    if (!triggerRef.contains(e.target as Node)) {
+      if (!listRef.contains(e.target as Node)) {
+        listRef.setAttribute('data-display', 'closed');
       }
     }
   };
@@ -55,12 +57,13 @@ const Select = <T,>({
   }, [query, data, displayKey]);
 
   const handleTriggerClick = () => {
-    if (!listRef.current) return;
+    const div = document.querySelector('[query-id="list"]') as HTMLDivElement;
+    if (!div) return;
 
     setQuery('');
 
-    const currentStatus = listRef.current.getAttribute('data-display');
-    listRef.current.setAttribute(
+    const currentStatus = div.getAttribute('data-display');
+    div.setAttribute(
       'data-display',
       currentStatus === 'open' ? 'closed' : 'open',
     );
@@ -79,12 +82,16 @@ const Select = <T,>({
   return (
     <div ref={componentRef} className="w-full">
       <div className={`flex ${labelPosition === 'top' ? 'flex-col' : ''} mt-2`}>
-        <label className="flex place-items-center h-full w-full py-1 pr-2">
+        <label
+          query-id="label"
+          className="flex place-items-center h-full w-full py-1 pr-2"
+        >
           {label}
         </label>
         <div className="relative">
-          <div ref={triggerRef}>
+          <div ref={triggerRef} query-id="trigger-ref">
             <input
+              query-id="input"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onFocus={(e) => e.target.select()}
@@ -92,7 +99,7 @@ const Select = <T,>({
               className="rounded-lg shadow-md px-2 py-1 
                 outline-none border-none ring-0 focus:ring-0"
             />
-            <div onClick={handleTriggerClick}>
+            <div onClick={handleTriggerClick} query-id="trigger">
               <ChevronDown
                 height={18}
                 width={18}
@@ -105,6 +112,7 @@ const Select = <T,>({
         </div>
         <div
           data-display="closed"
+          query-id="list"
           ref={listRef}
           className="rounded-b-lg data-[display=closed]:animate-dissappear
             data-[display=open]:animate-appear"
@@ -115,6 +123,7 @@ const Select = <T,>({
                 onClick={() => {
                   handleSelect(item);
                 }}
+                query-id={`option-${index}`}
                 className="cursor-pointer w-full bg-white text-black text-left
                 px-2 py-2  shadow-md
                  hover:bg-slate-400 transition-all duration-500
