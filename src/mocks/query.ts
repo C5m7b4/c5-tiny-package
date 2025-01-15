@@ -17,7 +17,7 @@ export function getAllByQueryId(id: string) {
   const els = queryAllByQueryId(container, id);
   if (!els.length) {
     throw queryHelpers.getElementError(
-      `Unable to find an element by: [data-query-id="${id}"]`,
+      `Unable to find an element by: [query-id="${id}"]`,
       container,
     );
   }
@@ -29,7 +29,7 @@ export function getByQueryId(id: string) {
   const result = getAllByQueryId(id);
   if (result.length > 1) {
     throw queryHelpers.getElementError(
-      `Found multiple elements with the [data-query-id="${id}"]`,
+      `Found multiple elements with the [query-id="${id}"]`,
       container,
     );
   }
