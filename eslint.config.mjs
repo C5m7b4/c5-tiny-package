@@ -13,10 +13,15 @@ export default [
   {
     rules: {
       'no-console': 2,
-      'no-unused-vars': 2,
       'react/no-unknown-property': 0,
       'no-undef': 2,
       'react/react-in-jsx-scope': 0,
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          varsIgnorePattern: '^_',
+        },
+      ],
     },
   },
 ];

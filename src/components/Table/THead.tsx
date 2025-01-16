@@ -1,46 +1,41 @@
 import { ITableHeader } from '../../types';
 import { ChevronDown } from '../../icons';
-import { sort, SortDirection } from '../../utils/sort';
+import React from 'react';
+import { SortDirection } from '../../utils/sort';
 
-export interface THeadProps<T> {
-  data: T[];
+export interface THeadProps {
   headers: ITableHeader[];
   backgroundColorClass?: string;
   backgroundColorStyle?: string;
   textColorClass?: string;
   textColorStyle?: string;
+  onColumnClick?: (
+    e: React.MouseEvent<SVGGElement>,
+    header: ITableHeader,
+  ) => void;
+  setSortDirection: (direction: SortDirection) => void;
   sortDirection: SortDirection;
-  setSortDirection: (sortDirection: SortDirection) => void;
-  setTableData: (data: T[]) => void;
-  setSelectedColumn: (header: ITableHeader | null) => void;
+  setSelectedColumn: (header: ITableHeader) => void;
 }
 
-const THead = <T,>({
-  data,
+const THead = ({
   headers,
   backgroundColorClass = 'bg-slate-500',
   backgroundColorStyle = '',
   textColorClass = 'text-white',
   textColorStyle = '',
-  sortDirection,
+  onColumnClick,
   setSortDirection,
-  setTableData,
+  sortDirection,
   setSelectedColumn,
-}: THeadProps<T>) => {
-  const basicSort = (header: ITableHeader) => {
-    if (header.dataType !== 'number') {
-      setSelectedColumn(null);
-    } else {
-      setSelectedColumn(header);
+}: THeadProps) => {
+  const handleColumnClick = (
+    e: React.MouseEvent<SVGGElement>,
+    header: ITableHeader,
+  ) => {
+    if (onColumnClick) {
+      onColumnClick(e, header);
     }
-    const sortedData = sort(
-      data,
-      header.column as keyof T,
-      sortDirection,
-      header,
-    );
-    setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
-    setTableData(sortedData);
   };
 
   return (
@@ -68,12 +63,16 @@ const THead = <T,>({
               <div className="flex justify-between w-full pr-2 border-r pl-2">
                 <div
                   className="w-full cursor-pointer"
-                  onClick={() => basicSort(header)}
+                  onClick={() => {
+                    setSelectedColumn(header);
+                    setSortDirection(sortDirection == 'asc' ? 'desc' : 'asc');
+                  }}
                 >
                   {header.alias}
                 </div>
 
                 <ChevronDown
+                  onClick={(e) => handleColumnClick(e, header)}
                   height={12}
                   width={12}
                   fill="white"

@@ -1,4 +1,5 @@
 import { FormatterType } from '../components/Table/formatters';
+import React from 'react';
 
 export interface IconProps {
   height: number;
@@ -7,6 +8,7 @@ export interface IconProps {
   stroke: string;
   strokeWidth?: number;
   className?: string;
+  onClick?: (e: React.MouseEvent<SVGGElement>) => void;
 }
 
 export type ITableHeaderAlign = 'left' | 'center' | 'right';

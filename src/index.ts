@@ -5,6 +5,7 @@ import { ChevronDown } from './icons';
 import type { ITableHeader } from './types';
 import { sort } from './utils/sort';
 import { numberFormatter } from './components/Table/formatters';
+import { useClickOutside } from './hooks/useClickOutside';
 
 export {
   Button,
@@ -15,4 +16,5 @@ export {
   Table,
   sort,
   numberFormatter,
+  useClickOutside,
 };
