@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
+  safelist: ['hover:bg-slate-200', 'hover:bg-slate-300', 'hover:bg-blue-200'],
   theme: {
     extend: {
       keyframes: {
