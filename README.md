@@ -5,7 +5,14 @@ this is a little typescript package
 
 ## Component in Library
 
-Select
+[Select](#select)
+
+[Table](#table)
+
+
+
+
+## Select
 | Prop   | Type | Required | Default value |
 | :------- | :------: | :-----: | :----- |
 | data | anything | ✅ | empty |
@@ -13,3 +20,12 @@ Select
 | label | string | ✅ | empty |
 | onSelect | function | | empty |
 | labelPosition | 'top', 'left' | | 'top' |
+
+
+## Table
+- Only scroll body. Sticky headers
+- Column customizable
+- Dynamic Re-ordering
+- Stats in the footer
+- filtering
+- sorting

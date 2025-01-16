@@ -1,4 +1,5 @@
 import { IconProps } from '../types';
+import React from 'react';
 
 const ChevronDown = ({
   height,
@@ -6,9 +7,15 @@ const ChevronDown = ({
   fill = '#000',
   stroke = '#000',
   className,
+  onClick,
 }: IconProps) => {
   return (
     <svg
+      onClick={(e: React.MouseEvent<SVGGElement>) => {
+        if (onClick) {
+          onClick(e);
+        }
+      }}
       fill={fill}
       stroke={stroke}
       height={`${height}px`}

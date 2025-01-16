@@ -96,7 +96,7 @@ const Select = <T,>({
               onChange={(e) => setQuery(e.target.value)}
               onFocus={(e) => e.target.select()}
               type="text"
-              className="rounded-lg shadow-md px-2 py-1 
+              className="rounded-lg shadow-md px-2 py-1 w-full
                 outline-none border-none ring-0 focus:ring-0"
             />
             <div onClick={handleTriggerClick} query-id="trigger">
