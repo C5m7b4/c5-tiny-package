@@ -9,7 +9,8 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest",
-    "test:ui": "vitest --ui --api 1337"
+    "test:ui": "vitest --ui --api 1337",
+    "updateversion": "npm version patch"
   },
   "keywords": [],
   "author": "C5m7b4",

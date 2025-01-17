@@ -6,15 +6,16 @@
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/C5m7b4/c5-tiny-package)
 
 
-this is a little typescript package
-
+This is tiny Typescript package with the following components:
 ## Component in Library
-
 [Select](#select)
 
 [Table](#table)
 
-
+## Installation
+```js
+    npm install c5-tiny-package
+```
 
 
 ## Select
@@ -25,6 +26,18 @@ this is a little typescript package
 | label | string | ✅ | empty |
 | onSelect | function | | empty |
 | labelPosition | 'top', 'left' | | 'top' |
+
+```js
+      <Select<iData>
+        data={data}
+        displayKey={'name'}
+        label={'Select type'}
+        labelPosition="top"
+        onSelect={(e: iData) => {
+          console.log(e);
+        }}
+      />
+```
 
 
 ## Table
@@ -44,3 +57,7 @@ this is a little typescript package
 | striped | boolean | | true |
 | stripeEvenClass | string | | empty |
 | stripeOddClass | string | | empty |
+
+```js
+ <Table data={tableData} headers={tableHeaders} />
+```
