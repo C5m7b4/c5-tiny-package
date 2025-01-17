@@ -83,7 +83,7 @@ const Table = <T,>({
 
   return (
     <div>
-      <table>
+      <table query-id="table">
         <THead
           headers={tableHeaders}
           backgroundColorClass={backgroundColorClass}
@@ -120,7 +120,7 @@ const Table = <T,>({
         position={position}
         headers={tableHeaders}
         setTableHeaders={setTableHeaders}
-        selectedHeader={selectedColumn}
+        // selectedHeader={selectedColumn}
         setSortDirection={setSortDirection}
       />
     </div>

@@ -122,7 +122,6 @@ describe('Select Component', () => {
 
     const trigger = getByQueryId('trigger');
     await userEvent.click(trigger);
-    screen.debug();
 
     const outside = getByQueryId('outside');
     await userEvent.click(outside);
