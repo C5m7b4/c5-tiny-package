@@ -1,4 +1,4 @@
-import { ITableHeader, numberFormatter } from '../../../src';
+import { imageFormatter, ITableHeader, numberFormatter } from '../../../src';
 
 export const tableHeaders: ITableHeader[] = [
   {
@@ -48,7 +48,7 @@ export const tableHeaders: ITableHeader[] = [
     renderer: () => {},
     width: 100,
     align: 'left',
-    formatter: null,
+    formatter: imageFormatter,
     dataType: 'string',
   },
   {

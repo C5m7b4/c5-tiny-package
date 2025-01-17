@@ -1,10 +1,12 @@
-import { ToastAnimationType, ToastType } from '../types';
+import { ToastAnimationType, ToastPosition, ToastType } from '../types';
 import { ReactNode } from 'react';
 
 export interface ToastProviderProps {
   children?: ReactNode;
   autoClose?: boolean;
   duration?: number;
+  position?: ToastPosition;
+  recentOnTop?: boolean;
 }
 
 export interface ToastOptions {
@@ -29,4 +31,5 @@ export interface ToastContextValue {
 export interface ToastContainerProps {
   toasts: ToastProps[];
   removeToast: (id: string) => void;
+  position: ToastPosition;
 }

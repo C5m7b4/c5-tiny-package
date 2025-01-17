@@ -6,7 +6,12 @@ import { ToastProvider } from '../../src';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ToastProvider autoClose={true} duration={5000}>
+    <ToastProvider
+      autoClose={true}
+      duration={5000}
+      position="top-right"
+      recentOnTop={false}
+    >
       <App />
     </ToastProvider>
   </StrictMode>,

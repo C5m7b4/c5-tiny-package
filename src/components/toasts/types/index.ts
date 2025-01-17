@@ -7,3 +7,8 @@ export type ToastAnimationType =
   | 'zoom'
   | 'flip'
   | 'rotate';
+export type ToastPosition =
+  | 'top-left'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-right';

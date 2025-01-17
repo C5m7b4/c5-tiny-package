@@ -51,6 +51,16 @@ module.exports = {
           '10%': { transform: 'translateX(-10%)' },
           '100%': { transform: 'translateX(100%)', opacity: 0 },
         },
+        slideInFromLeft: {
+          '0%': { transform: 'translateX(-100%)', opacity: 0 },
+          '90%': { transform: 'translateX(10%)' },
+          '100%': { transform: 'translateX(0)', opacity: 1 },
+        },
+        slideOutToLeft: {
+          '0%': { transform: 'translateX(0)', opacity: 1 },
+          '10%': { transform: 'translateX(10%)' },
+          '100%': { transform: 'translateX(-100%)', opacity: 0 },
+        },
       },
       animation: {
         appear: 'appear .3s ease-in-out forwards',
@@ -59,6 +69,8 @@ module.exports = {
         fadeOutModal: 'fadeOutModal .3s ease-in-out forwards',
         slideInFromRight: 'slideInFromRight 0.5s ease-in-out forwards',
         slideOutToRight: 'slideOutToRight 0.5s ease-in-out forwards',
+        slideInFromLeft: 'slideInFromLeft 0.5s ease-in-out forwards',
+        slideOutToLeft: 'slideOutToLeft 0.5s ease-in-out forwards',
       },
     },
   },
