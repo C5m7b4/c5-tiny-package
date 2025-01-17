@@ -42,7 +42,7 @@ const Footer = <T,>({
   }, [selectedColumn, data]);
 
   return (
-    <tfoot>
+    <tfoot query-id="tfoot">
       <tr>
         {selectedColumn != null ? (
           <td colSpan={9}>
@@ -59,8 +59,8 @@ const Footer = <T,>({
               <div>max: {maxValue.toFixed(2)}</div>
               <div>min: {minValue.toFixed(2)}</div>
               <div>sum: {sumValue.toFixed(2)}</div>
-              <div>avg: {avgValue.toFixed(2)}</div>
-              <div>median: {medianValue.toFixed(2)}</div>
+              <div query-id="avg">avg: {avgValue.toFixed(2)}</div>
+              <div query-id="median">median: {medianValue.toFixed(2)}</div>
               <div>Total Records: {data.length}</div>
             </div>
           </td>

@@ -23,7 +23,6 @@ const ColumnConfigModal = ({
 }: ColumnConfigModalProps) => {
   const ref = useClickOutside<HTMLDivElement>(() => {
     if (!ref.current) return;
-
     ref.current.setAttribute('data-display', 'closed');
 
     setTimeout(() => {
@@ -53,6 +52,7 @@ const ColumnConfigModal = ({
     ? createPortal(
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-10">
           <div
+            query-id="modal"
             ref={ref}
             data-display="open"
             className="fixed bg-white p-4 rounded-lg z-20 shadow-md 
@@ -67,12 +67,14 @@ const ColumnConfigModal = ({
               </div>
               <div className="text-left w-full mb-2 border-b py-2">
                 <div
+                  query-id="sort-asc"
                   className="cursor-pointer"
                   onClick={() => handleSort('asc')}
                 >
                   Sort Ascending
                 </div>
                 <div
+                  query-id="sort-desc"
                   className="cursor-pointer"
                   onClick={() => handleSort('desc')}
                 >
@@ -80,7 +82,7 @@ const ColumnConfigModal = ({
                 </div>
               </div>
 
-              <div className="w-full px-4">
+              <div query-id="checkboxes" className="w-full px-4">
                 {headers.map((header, idx) => {
                   return (
                     <div
