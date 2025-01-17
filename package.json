@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": "C5m7b4",
-  "license": "ISC",
+  "license": "MIT",
   "description": "small typescript library",
   "repository": {
     "type": "git",
