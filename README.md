@@ -7,7 +7,7 @@
 
 
 This is tiny Typescript package with the following components:
-## Component in Library
+## Components in Library
 [Select](#select)
 
 [Table](#table)
